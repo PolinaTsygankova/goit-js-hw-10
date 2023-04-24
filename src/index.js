@@ -36,6 +36,8 @@ function onInputType(e) {
       })
       .catch(error => {
         Notiflix.Notify.failure('Oops, there is no country with that name!');
+        refs.markupList.innerHTML = '';
+        refs.countryDiv.innerHTML = '';
       });
   }
 }
