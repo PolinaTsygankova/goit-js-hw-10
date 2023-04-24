@@ -45,7 +45,7 @@ function createMarkupList(data) {
     .map(item => {
       const { name, flags } = item;
       return `<li>
-                 <img src="${flags.svg}" alt="${name.official}'s flag" width="20">
+                 <img src="${flags.svg}" alt="${name.official}'s flag" width="25">
                  <h1>${name.official}</h1>
             </li>`;
     })
@@ -58,7 +58,7 @@ function createCard(data) {
       const { name, capital, population, flags, languages } = item;
 
       return `
-        <img src="${flags.svg}" alt="${name.official}'s flag" width="20">
+        <img src="${flags.svg}" alt="${name.official}'s flag" width="40">
         <h1 class="card-title">${name.official}</h1>
             <ul>
                 <li>
