@@ -35,9 +35,13 @@ function onInputType(e) {
         }
       })
       .catch(error => {
-        Notiflix.Notify.failure('Oops, there is no country with that name!');
-        refs.markupList.innerHTML = '';
-        refs.countryDiv.innerHTML = '';
+        if (error.message === '404') {
+          Notiflix.Notify.failure('Oops, there is no country with that name!');
+          refs.markupList.innerHTML = '';
+          refs.countryDiv.innerHTML = '';
+        } else {
+          console.log(error.message);
+        }
       });
   }
 }
@@ -72,12 +76,12 @@ function createCard(data) {
                 <li>
                     <h2 class="card-dcr">Languages: ${Object.values(
                       languages
-                    )}</h2>
+                    ).join(', ')}</h2>
                 </li>
             </ul>
             `;
     })
-    .join(' ');
+    .join(',');
 }
 
 refs.input.addEventListener('input', debounce(onInputType, DEBOUNCE_DELAY));
